@@ -203,9 +203,9 @@ $(document).ready(function() {
             this.innerHTML = "Tilbakestill";
 
             disableControl(); //deaktiver kontroll til sporene stopper
-            
             // Sjekk hvert 100. millisekund om spilleautomatene har stoppet
             // Hvis de har stoppet, aktiver kontrollen
+            
         x = window.setInterval(function() {
             if (a.speed === 0 && b.speed === 0 && c.speed === 0 && completed === 3) {
                  enableControl();
