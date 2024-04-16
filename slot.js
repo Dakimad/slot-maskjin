@@ -106,9 +106,9 @@ $(document).ready(function() {
             i,
             j,
             k;
-
+// Finn nærmeste posisjon i posArr-listen basert på gjeldende bakgrunnsposisjon og oppdater 'this.pos' til den beste tilpassede posisjonen.
         el_id = $(el).attr('id');
-        //pos = $(el).css('background-position'); //av en eller annen grunn fungerer dette ikke i IE
+        
         pos = document.getElementById(el_id).style.backgroundPosition;
         pos = pos.split(' ')[1];
         pos = parseInt(pos, 10);
@@ -205,7 +205,6 @@ $(document).ready(function() {
             disableControl(); //deaktiver kontroll til sporene stopper
             // Sjekk hvert 100. millisekund om spilleautomatene har stoppet
             // Hvis de har stoppet, aktiver kontrollen
-            
         x = window.setInterval(function() {
             if (a.speed === 0 && b.speed === 0 && c.speed === 0 && completed === 3) {
                  enableControl();
