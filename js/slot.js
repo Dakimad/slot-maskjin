@@ -24,8 +24,12 @@ $(document).ready(function() {
             1230, //banan
             1298 //kirsebær
         ];
-    
-    var win = [];
+
+
+    var credits = 0; // Definerer en variabel for kreditter
+    var win = []; // Flyttet definisjonen inn i $(document).ready()
+
+    // Definer symbolgevinster
     win[0] = win[454] = win[913] = 1;
     win[80] = win[539] = win[1000] = 2;
     win[165] = win[624] = win[1085] = 3;
@@ -33,25 +37,95 @@ $(document).ready(function() {
     win[310] = win[769] = win[1230] = 5;
     win[378] = win[837] = win[1298] = 6;
 
+    function updateCredits() {
+        $('.credits').text('Credits: ' + credits); // Funksjon for å oppdatere visningen av kreditter
+    }
+
+    function addMonney() {
+        credits += 50; // Funksjon for å legge til 50 monney og oppdatere counteren
+        updateCredits(); // Oppdaterer visningen av kreditter
+    }
+
+    function printResult() {
+        var res;
+        if (win[a.pos] === win[b.pos] && win[a.pos] === win[c.pos]) {
+            console.log("brugh")
+            res = "Du vant 150 monney!";
+            credits += 150;
+            updateCredits();
+        } else if (win[a.pos] === win[b.pos] || win[a.pos] === win[c.pos] || win[b.pos] === win[c.pos]) {
+            res = "Du vant 50 monney!";
+            credits += 50; // Legg til 50 monney hvis to like symboler vises
+            updateCredits(); // Oppdater visningen av kreditter
+        } else {
+            res = "Du tapte";
+        }
+        $('#result').html(res);
+    }
+        
+
+        
+
     /**
     * @class Slot
     * @constructor
     */
     function Slot(el, max, step) {
-        this.speed = 0; //hastighet for sporet til enhver tid
-        this.step = step; //hastigheten vil øke med denne frekvensen
-        this.si = null; //holder setInterval-objektet for det gitte sporet
-        this.el = el; //dom-elementet til sporet
-        this.maxSpeed = max; //maksimal hastighet dette sporet kan ha
-        this.pos = null; //sluttposisjonen til sporet    
-
+        this.speed = 0; // hastighet for sporet til enhver tid
+        this.step = step; // hastigheten vil øke med denne frekvensen
+        this.si = null; // holder setInterval-objektet for det gitte sporet
+        this.el = el; // dom-elementet til sporet
+        this.maxSpeed = max; // maksimal hastighet dette sporet kan ha
+        this.pos = null; // sluttposisjonen til sporet    
+    
         $(el).pan({
-            fps:30,
-            dir:'down'
+            fps: 30,
+            dir: 'down'
         });
         $(el).spStop();
+    
+        var that = this;
+    
+        function start() {
+            console.log("start")
+            that.si = window.setInterval(function() {
+                that.speed += that.step; // øk hastigheten med den angitte frekvensen
+                if (that.speed > that.maxSpeed) {
+                    that.speed = that.maxSpeed; // begrens hastigheten til maksimal verdi
+                }
+                $(el).spSpeed(that.speed); // oppdater hastigheten til sporet
+                if (that.pos !== null && that.speed >= that.maxSpeed && $(el).css('top') == that.pos) {
+                    window.clearInterval(that.si); // stopp spinn når målet er nådd
+                }
+            }, 100);
+        }
+    
+        function stop() {
+            // Lag en gradvis brems ved å redusere hastigheten når sporet nærmer seg sluttposisjonen
+            var currentPos = parseFloat($(el).css('top'));
+            var remainingDistance = Math.abs(that.pos - currentPos);
+            var slowdownDistance = 100; // Juster denne verdien for å endre avstanden hvor bremsingen starter
+            if (remainingDistance < slowdownDistance) {
+                that.speed -= that.step; // reduser hastigheten gradvis
+                if (that.speed < 0) {
+                    that.speed = 0;
+                }
+                $(el).spSpeed(that.speed); // oppdater hastigheten til sporet
+            }
+        }
+    
+        this.startSpin = function(position) {
+            console.log("idkman");
+            this.pos = position;
+            start();
+        }
+    
+        this.stopSpin = function() {
+            window.clearInterval(this.si);
+            $(el).spSpeed(0);
+            stop(); // kall stoppfunksjonen for å implementere gradvis bremsing ved slutten av spinn
+        }
     }
-
     /**
     * @method start
     * Starter et spinn
@@ -93,7 +167,6 @@ $(document).ready(function() {
     };
 
     /**
-    * @method finalPos
     * Finner den endelige posisjonen til sporet
     */
     Slot.prototype.finalPos = function() {
@@ -139,10 +212,6 @@ $(document).ready(function() {
         });
     };
     
-    /**
-    * @method reset
-    * Tilbakestiller et spor til opprinnelig tilstand
-    */
     Slot.prototype.reset = function() {
         var el_id = $(this.el).attr('id');
         $._spritely.instances[el_id].t = 0;
@@ -160,7 +229,7 @@ $(document).ready(function() {
         $('#control').attr("disabled", true);
     }
 
-    function printResult() {
+/*     function printResult() {
         var res;
         if(win[a.pos] === win[b.pos] && win[a.pos] === win[c.pos]) {
             res = "Du vant!";
@@ -168,7 +237,7 @@ $(document).ready(function() {
             res = "Du tapte";
         }
         $('#result').html(res);
-    }
+    } */
 
     // Opprett sporobjekter
     var a = new Slot('#slot1', 30, 1),
@@ -220,3 +289,5 @@ $(document).ready(function() {
         }
         });
         });
+
+        
