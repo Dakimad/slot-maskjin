@@ -24,14 +24,17 @@ $(document).ready(function() {
             1230, //banan
             1298 //kirsebær
         ];
-
+   /**
+    * @class Slot
+    * @Credits
+    */
 
     var credits = 0; // Definerer en variabel for kreditter
     var win = []; // Flyttet definisjonen inn i $(document).ready()
 
     // Definer symbolgevinster
     win[0] = win[454] = win[913] = 1;
-    win[80] = win[539] = win[1000] = 2;
+    win[80] = win[539] = win[1000] = 10000;
     win[165] = win[624] = win[1085] = 3;
     win[237] = win[696] = win[1157] = 4;
     win[310] = win[769] = win[1230] = 5;
@@ -42,16 +45,20 @@ $(document).ready(function() {
     }
 
     function addMonney() {
-        credits += 50; // Funksjon for å legge til 50 monney og oppdatere counteren
+        credits += 5; // Funksjon for å legge til 50 monney og oppdatere counteren
         updateCredits(); // Oppdaterer visningen av kreditter
     }
 
     function printResult() {
         var res;
         if (win[a.pos] === win[b.pos] && win[a.pos] === win[c.pos]) {
-            console.log("brugh")
-            res = "Du vant 150 monney!";
-            credits += 150;
+            if (win[a.pos] === 10000) {
+                res = "Du vant 10000 monney!";
+                credits += 10000;
+            } else {
+                res = "Du vant 150 monney!";
+                credits += 150;
+            }
             updateCredits();
         } else if (win[a.pos] === win[b.pos] || win[a.pos] === win[c.pos] || win[b.pos] === win[c.pos]) {
             res = "Du vant 50 monney!";
@@ -62,9 +69,6 @@ $(document).ready(function() {
         }
         $('#result').html(res);
     }
-        
-
-        
 
     /**
     * @class Slot
