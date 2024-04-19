@@ -40,36 +40,6 @@ $(document).ready(function() {
     win[310] = win[769] = win[1230] = 5;
     win[378] = win[837] = win[1298] = 6;
 
- /**
-    * @class Slot
-    * @spinn counter
-    */
-    var spinCounter = 0; // Variabel for å telle antall spinn som er startet
-
-    /**
-     * Funksjon for å øke spinn-telleren og oppdatere visningen
-     */
-    function increaseSpinCounter() {
-        spinCounter++; // Øk spinn-telleren med 1
-        $('#spin-counter').text('Antall spinn: ' + spinCounter); // Oppdater visningen av antall spinn
-    }
-
-    this.startSpin = function(position) {
-        console.log("idkman");
-        this.pos = position;
-        start();
-        increaseSpinCounter(); // Kall funksjonen for å øke spinn-telleren
-    }
-
-    function updateCredits() {
-        $('.credits').text('Credits: ' + credits); // Funksjon for å oppdatere visningen av kreditter
-    }
-
-    function addMonney() {
-        credits += 5; // Funksjon for å legge til 50 monney og oppdatere counteren
-        updateCredits(); // Oppdaterer visningen av kreditter
-    }
-
 /**
     * @class Slot
     * @Credits
@@ -173,6 +143,36 @@ $(document).ready(function() {
     };
 
     /**
+    * @class Slot
+    * @spinn counter
+    */
+    var spinCounter = 0; // Variabel for å telle antall spinn som er startet
+
+    /**
+     * Funksjon for å øke spinn-telleren og oppdatere visningen
+     */
+    function increaseSpinCounter() {
+        spinCounter++; // Øk spinn-telleren med 1
+        $('#spin-counter').text('Antall spinn: ' + spinCounter); // Oppdater visningen av antall spinn
+    }
+
+    this.startSpin = function(position) {
+        console.log("idkman");
+        this.pos = position;
+        start();
+        increaseSpinCounter(); // Kall funksjonen for å øke spinn-telleren
+    }
+
+    function updateCredits() {
+        $('.credits').text('Credits: ' + credits); // Funksjon for å oppdatere visningen av kreditter
+    }
+
+    function addMonney() {
+        credits += 5; // Funksjon for å legge til 50 monney og oppdatere counteren
+        updateCredits(); // Oppdaterer visningen av kreditter
+    }
+
+    /**
     * @method stop
     * Stopper et spinn
     */
@@ -258,16 +258,6 @@ $(document).ready(function() {
     function disableControl() {
         $('#control').attr("disabled", true);
     }
-
-/*     function printResult() {
-        var res;
-        if(win[a.pos] === win[b.pos] && win[a.pos] === win[c.pos]) {
-            res = "Du vant!";
-        } else {
-            res = "Du tapte";
-        }
-        $('#result').html(res);
-    } */
 
     // Opprett sporobjekter
     var a = new Slot('#slot1', 30, 1),
