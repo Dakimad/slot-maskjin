@@ -28,7 +28,7 @@ $(document).ready(function() {
     * @class Slot
     * @Credits
     */
-
+    var spinCounter = 0; // Variabel for å telle antall spinn som er startet
     var credits = 0; // Definerer en variabel for kreditter
     var win = []; // Flyttet definisjonen inn i $(document).ready()
 
@@ -113,11 +113,17 @@ $(document).ready(function() {
                 $(el).spSpeed(that.speed); // oppdater hastigheten til sporet
             }
         }
+
+        function increaseSpinCounter() {
+            spinCounter++; // Øk spinn-telleren med 1
+            $('#spin-counter').text('Antall spinn: ' + spinCounter); // Oppdater visningen av antall spinn
+        }
     
         this.startSpin = function(position) {
             console.log("idkman");
             this.pos = position;
             start();
+            increaseSpinCounter();
         }
     
         this.stopSpin = function() {
@@ -144,7 +150,7 @@ $(document).ready(function() {
 
     /**
     * @class Slot
-    * @spinn counter
+    * @spinnCounter
     */
     var spinCounter = 0; // Variabel for å telle antall spinn som er startet
 
@@ -165,11 +171,6 @@ $(document).ready(function() {
 
     function updateCredits() {
         $('.credits').text('Credits: ' + credits); // Funksjon for å oppdatere visningen av kreditter
-    }
-
-    function addMonney() {
-        credits += 5; // Funksjon for å legge til 50 monney og oppdatere counteren
-        updateCredits(); // Oppdaterer visningen av kreditter
     }
 
     /**
@@ -274,6 +275,8 @@ $(document).ready(function() {
             b.start();
             c.start();
             this.innerHTML = "Stopp";
+
+            increaseSpinCounter();
             
             disableControl(); //deaktiver kontroll til sporene når de når maks hastighet
             
