@@ -52,13 +52,13 @@ $(document).ready(function() {
                 res = "Du vant 10000 monney!";
                 credits += 10000;
             } else {
-                res = "Du vant 150 monney!";
-                credits += 150;
+                res = "Du vant 850 monney!";
+                credits += 850;
             }
             updateCredits();
         } else if (win[a.pos] === win[b.pos] || win[a.pos] === win[c.pos] || win[b.pos] === win[c.pos]) {
-            res = "Du vant 50 monney!";
-            credits += 50; // Legg til 50 monney hvis to like symboler vises
+            res = "Du vant 5 monney!";
+            credits += 5; // Legg til 50 monney hvis to like symboler vises
             updateCredits(); // Oppdater visningen av kreditter
         } else {
             res = "Du tapte";
