@@ -23,6 +23,10 @@
     <!-- Innhold på nettsiden -->
     <div id="dik">
         <div class="signup-box">
+            <!-- Knapp for å gå tilbake til hjemmesiden -->
+            <button onclick="window.location.href='index.html';" style="position: absolute; top: 10px; right: 10px;">Hjem</button>
+            <!-- Knapp for å logge inn -->
+            <button onclick="window.location.href='loginn.html';" style="position: absolute; top: 50px; right: 10px;">Logg inn</button>
             <form class="signup-form" action="/php/signup.php" method="post">
                 <!-- Felt for brukernavn -->
                 <label for="username">Brukernavn:</label>
@@ -36,6 +40,7 @@
                 <label for="confirm_password">Gjenta passord:</label>
                 <input type="password" name="confirm_password" id="confirm_password" required><br><br>
                     
+                
                 <input type="submit" value="Registrer"> <!-- Registrer-knapp -->
             </form>
         </div> 

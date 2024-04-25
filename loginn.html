@@ -23,6 +23,10 @@
     <!-- Innhold på nettsiden -->
     <div id="dik">
         <div class="login-box">
+            <!-- Knapp for å logge inn -->
+            <button onclick="window.location.href='index.html';" style="position: absolute; top: 10px; right: 10px;">Hjem</button>
+            <!-- Knapp for å registrere -->
+            <button onclick="window.location.href='signup.html';" style="position: absolute; top: 50px; right: 10px;">Registrer deg</button>
             <form class="login-form" action="/php/loginn.php" method="post">
                 <!-- Felt for brukernavn -->
                 <label for="username">Brukernavn:</label>
@@ -31,7 +35,7 @@
                 <label for="password">Passord:</label>
                 <input type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[A-Z])(?=.*\W)(?=.*[a-z]).{8,}" title="Passordet må inneholde minst én stor bokstav, ett tall, ett spesialtegn, og være minst 8 tegn langt." required><br><br>
 
-                    
+
                 <input type="submit" value="Logg inn"> <!-- Logg inn-knapp -->
             </form>
         </div> 
