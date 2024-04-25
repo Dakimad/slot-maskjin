@@ -13,7 +13,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 // Database tilkoblingsdetaljer
-$dbhost = '172.20.128.73';
+$dbhost = 'localhost'; // Endre dette til din faktiske databasevert
 $dbuser = 'adminusr';
 $dbpass = 'Skole123';
 $dbname = 'spin';
@@ -38,7 +38,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Sjekk om brukernavnet allerede er i bruk
     $check_username_query = "SELECT * FROM brukere WHERE Username='$input_username'";
     $check_username_result = $conn->query($check_username_query);
-    if ($check_username_result->num_rows > 0) {
+    if (!$check_username_result) {
+        // Feil ved spørring, logg feilmelding
+        $message = "Feil ved spørring: " . $conn->error;
+    } elseif ($check_username_result->num_rows > 0) {
         $message = "Brukernavnet er allerede i bruk. Velg et annet brukernavn.";
     } else {
         // Legg til brukeren i databasen
@@ -48,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $message = "Brukeren ble registrert vellykket. Du kan nå logge inn.";
         } else {
             // Vis feilmelding hvis det oppstod en feil under registreringen
-            $message = "Det oppstod en feil under registreringen. Vennligst prøv igjen.";
+            $message = "Det oppstod en feil under registreringen: " . $conn->error;
         }
     }
 }
