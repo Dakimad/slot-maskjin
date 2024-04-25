@@ -1,0 +1,122 @@
+/* Fjerner blå linktekst og bytter til svart for hele siden */
+a {
+    text-decoration: none; /* Fjerner understrek på lenker */
+    color: black; /* Endrer lenkefargen til svart */
+}
+
+/* Endrer bakgrunnsfargen på siden */
+body {
+    background-image: linear-gradient(
+    23deg,
+    hsl(49deg 100% 69%) 0%,
+    hsl(16deg 80% 61%) 2%,
+    hsl(330deg 81% 34%) 12%,
+    hsl(259deg 100% 15%) 50%,
+    hsl(212deg 100% 25%) 88%,
+    hsl(197deg 100% 30%) 98%,
+    hsl(183deg 79% 36%) 100%
+  );
+  height: 100vh;
+  font-family: Verdana, Arial, sans-serif;
+  padding: 20px;
+  margin: 0;
+}
+
+/* Navigasjonsdiv-elementet */
+.nav_flex {
+    background: #08529d;
+    box-shadow: 0 0 0.5em 0.1em #c3c3c333; /* Endrer bakgrunnsfarge til mørk khaki */
+    display: flex; /* Bruker flexbox for layout */
+    justify-content: space-between; /* Sprer elementene jevnt langs aksen */
+    align-items: center; /* Sentrerer elementene vertikalt */
+    border-radius: 10px; /* Gir boksen avrundede hjørner */
+}
+
+
+.container {
+    margin: 0 auto;
+    width: 300px;
+    text-align: center;
+    background-color: #08529d; /* Bakgrunnsfarge for innhold */
+    padding: 20px;
+    border: 2px solid #000; /* Ramme rundt innhold */
+    border-radius: 10px; /* Avrundede hjørner */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Skyggeeffekt */
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.slot-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.slot {
+    background: url("images/reel_normal.png") repeat-y;
+    width: 86px;
+    height: 70px;
+    margin: 0 5px;
+    border: 1px solid #000;
+    background-position: 0 4px;
+}
+
+.motion {
+    background: url("images/reel_blur.png") repeat-y;
+}
+
+button {
+    display: block;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4caf50; /* Bakgrunnsfarge for knapp */
+    color: #000000; /* Tekstfarge for knapp */
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Overgangseffekt for bakgrunnsfarge */
+}
+
+button:hover {
+    background-color: #45a049; /* Endret bakgrunnsfarge ved hover */
+}
+
+#result {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.credits {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.credits .browsers {
+    font-style: italic;
+    font-size: 14px;
+    color: #777;
+    margin-top: 4px;
+}
+
+.clear {
+    clear: both;
+}
+
+#spin-counter {
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0; /* Setter marginen til 20px øverst, auto på høyre og venstre, 0 nederst */
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #08529d;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
