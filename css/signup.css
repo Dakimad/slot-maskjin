@@ -90,13 +90,26 @@ body {
     background-color: #f0f0f0; /* Bakgrunnsfarge - endre til ønsket farge */
 }
 
+.login-box,
+.signup-box {
+    width: 300px; /* Justerer bredden etter behov */
+    margin: 0 auto; /* Sentrerer boksen horisontalt */
+}
+
 .login-box {
     border: 2px solid #000; /* Ramme rundt innholdet */
     border-radius: 15px; /* Avrundede hjørner */
     padding: 20px;
-    width: 200px;
     background: #08529d;
-  box-shadow: 0 0 0.5em 0.1em #c3c3c333;
+    box-shadow: 0 0 0.5em 0.1em #c3c3c333;
+}
+
+.signup-box {
+    border: 2px solid black; /* Ramme rundt innholdet */
+    border-radius: 10px; /* Avrundede hjørner */
+    padding: 20px;
+    background: #08529d; /* Bakgrunnsfarge for boksen */
+    box-shadow: 0 0 0.5em 0.1em #c3c3c333; /* Skyggeeffekt */
 }
 
 .login-form {
