@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
 <?php
 // Aktiver feilmeldinger for feilsøking
 // Fjern eller endre disse innstillingene i produksjon
@@ -5,10 +13,10 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 // Database tilkoblingsdetaljer
-$dbhost = '172.20.128.73:3306';
+$dbhost = '172.20.128.73';
 $dbuser = 'adminusr';
 $dbpass = 'Skole123';
-$dbname = 'login';
+$dbname = 'spin';
 
 // Opprett en ny MySQLi-tilkobling
 $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
@@ -28,13 +36,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $input_password = $conn->real_escape_string($_POST['password']);
 
     // Sjekk om brukernavnet allerede er i bruk
-    $check_username_query = "SELECT * FROM login WHERE usr='$input_username'";
+    $check_username_query = "SELECT * FROM brukere WHERE Username='$input_username'";
     $check_username_result = $conn->query($check_username_query);
     if ($check_username_result->num_rows > 0) {
         $message = "Brukernavnet er allerede i bruk. Velg et annet brukernavn.";
     } else {
         // Legg til brukeren i databasen
-        $add_user_query = "INSERT INTO login (usr, pas) VALUES ('$input_username', '$input_password')";
+        $add_user_query = "INSERT INTO brukere (Username, Password) VALUES ('$input_username', '$input_password')";
         if ($conn->query($add_user_query) === TRUE) {
             // Vis suksessmelding hvis brukeren ble lagt til
             $message = "Brukeren ble registrert vellykket. Du kan nå logge inn.";
@@ -48,3 +56,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // Lukk databaseforbindelsen
 $conn->close();
 ?>
+</body>
+</html>
