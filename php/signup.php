@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 // Database tilkoblingsdetaljer
-$dbhost = '172.20.128.78:3306';
+$dbhost = '172.20.128.73:3306';
 $dbuser = 'adminusr';
 $dbpass = 'Skole123';
 $dbname = 'login';

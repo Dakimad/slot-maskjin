@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 // Database tilkoblingsdetaljer
-$dbhost = '172.20.128.78';
+$dbhost = '172.20.128.73';
 $dbport = '3306'; // Portnummer for MySQL-serveren
 $dbuser = 'adminusr';
 $dbpass = 'Skole123';
