@@ -1,6 +1,6 @@
 **Slot-Maskjin Brukertesting**
 
-**Hav er nettsiden*
+**Hav er nettsiden**
 
 1. **Navigansjoin**:
 Hva syns du om navigasjonen er det vansleking å se hvoran du skal komme deg frem og tilbake mellom logginn og signupp.
