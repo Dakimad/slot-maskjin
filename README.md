@@ -97,3 +97,23 @@ Teste påloggingssystemet for å sikre at det fungerer som forventet og gir pass
 **Oppfølgingsspørsmål:**
 - Ble det identifisert noen feil eller uoverensstemmelser under testingen?
 - Var feilmeldinger og tilbakemeldinger til brukeren tilstrekkelige og forståelige?
+
+---
+
+Slot-maskjin nettsiden min tilbyr funksjonalitet for pålogging og registrering (sign-up), er det flere viktige sikkerhetsaspekter som må tas i betraktning:
+
+1. **Beskyttelse mot SQL-injeksjon**: Sikre at all brukerinndata som blir sendt til databasen, blir behandlet på en sikker måte for å forhindre SQL-injeksjon. Dette kan oppnås ved å bruke forberedte spørringer (prepared statements) eller ved å sanitere input ved hjelp av funksjoner som `real_escape_string`.
+
+2. **Passordsikkerhet**: Implementer en sikker metode for lagring av passord i databasen, for eksempel hashing med en tilfeldig saltverdi. Dette bidrar til å beskytte brukerens passord i tilfelle en databaselekkasje.
+
+3. **Brukerautentisering og -autorisasjon**: Sørg for at bare autoriserte brukere har tilgang til bestemte deler av nettsiden. Dette kan oppnås ved å implementere en robust autentiseringsmekanisme, for eksempel bruk av sessions eller tokens, og ved å kontrollere tilgangsnivåer til ulike ressurser.
+
+4. **Sikkerhet mot brute force-angrep**: Implementer mekanismer som begrenser antall påloggingsforsøk eller innfører en captcha-løsning for å hindre brute force-angrep på påloggingssiden.
+
+5. **Datakryptering**: Krypter sensitiv brukerinformasjon, for eksempel personopplysninger og betalingsdetaljer, når de blir sendt over nettverket, for å beskytte mot avlytting og datatyveri.
+
+6. **Beskyttelse mot XSS-angrep**: Sikre at all brukerinput som blir vist på nettsiden, blir skikkelig escaped eller filtrert for å forhindre XSS (Cross-Site Scripting) -angrep.
+
+7. **Oppdatering og sårbarhetshåndtering**: Sørg for å holde nettsiden oppdatert med de nyeste sikkerhetsoppdateringene og håndter sårbarheter så snart de oppdages.
+
+Når det gjelder hvorfor disse sikkerhetsaspektene er viktige, er det fordi nettsider som tilbyr pålogging og registrering håndterer sensitiv brukerinformasjon. Dette inkluderer personlige detaljer og passord som kan være attraktive mål for hackere og angripere. Å implementere tilstrekkelige sikkerhetsforanstaltninger bidrar til å beskytte både brukernes personvern og nettsidens integritet, og det bygger tillit hos brukerne.
