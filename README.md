@@ -117,3 +117,30 @@ Slot-maskjin nettsiden min tilbyr funksjonalitet for pålogging og registrering 
 7. **Oppdatering og sårbarhetshåndtering**: Sørg for å holde nettsiden oppdatert med de nyeste sikkerhetsoppdateringene og håndter sårbarheter så snart de oppdages.
 
 Når det gjelder hvorfor disse sikkerhetsaspektene er viktige, er det fordi nettsider som tilbyr pålogging og registrering håndterer sensitiv brukerinformasjon. Dette inkluderer personlige detaljer og passord som kan være attraktive mål for hackere og angripere. Å implementere tilstrekkelige sikkerhetsforanstaltninger bidrar til å beskytte både brukernes personvern og nettsidens integritet, og det bygger tillit hos brukerne.
+
+---
+
+**Serveroppsett**
+
+**Bakgrunn:**
+Jeg tok initiativ til å konfigurere to containere på en Core med Ubuntu-serveren min. En container skulle være for kjøring av nettsiden, mens den andre skulle være for MySQL-databaser.
+
+**Trinnene i Serveroppsettet:**
+
+1. **Opprettelse av Containere:**
+   - Jeg startet med å lage to containere – en Core med Ubuntu-server for nettsiden og en MySQL-container for databaseoppsett.
+
+    
+2. **Minimal Krav**
+   - De Minimmale kravene for å sette opp serverene son som jeg har gjort det er: 
+<img width="433" alt="Screenshot 2024-03-12 at 13 31 06" src="https://github.com/Dakimad/Emoji-Krypting-og-dekrypting/assets/104507449/9874e947-c09d-450b-9a3d-91d06e50691e">
+
+3. **Klone Github-repositoriet:**
+   - For Core-containeren, klonte jeg GitHub-repositoriet rett mot serveren. Dette trinnet var enkelt og raskt utført.
+
+4. **Tilpasninger og Feilretting:**
+   - Etter kloneprosessen måtte jeg gjøre noen tilpasninger på grunn av forskjeller mellom min laptop og serveren. Dette inkluderte å justere enkelte filer for å sikre sømløs drift på serveren. For å implementere disse endringene, gikk jeg inn i serverkoden og rettet opp noen småfeil. Dette skyldes at Ubuntu ikke er like tolerant som macOS når det gjelder kodepresisjon. Selv om VS Code tillater bruk av små bokstaver i filnavn, fungerer det ikke som forventet når filnavnet inneholder store bokstaver og jeg refererer til det med små bokstaver i koden. da det viste seg å være en effektiv metode.
+
+5. **Alternativ Tilpasning:**
+   - En annen tilpasningsmetode, selv om mer tidkrevende, er å slette alle filene i containeren og deretter klone GitHub-repositoriet på nytt. Dette kan være et alternativ for de som foretrekker en ren start.
+  
