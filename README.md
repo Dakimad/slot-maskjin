@@ -51,13 +51,12 @@ Selvfølgelig, her er teksten tilpasset koden for innlogging:
 10. **Lukking av databaseforbindelsen**:
     Til slutt lukkes databaseforbindelsen for å frigjøre ressurser.
 
-**Testscenario for påloggingssystemet**
 
-**Hensikt:**
-Teste påloggingssystemet for å sikre at det fungerer som forventet og gir passende tilbakemeldinger til brukeren.
 
 ---
 
+**Hensikt:**
+Teste påloggingssystemet for å sikre at det fungerer som forventet og gir passende tilbakemeldinger til brukeren.
 **Signupp:**
 
 1. **Aktivering av feilmeldinger:**
