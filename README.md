@@ -56,6 +56,8 @@ Selvfølgelig, her er teksten tilpasset koden for innlogging:
 **Hensikt:**
 Teste påloggingssystemet for å sikre at det fungerer som forventet og gir passende tilbakemeldinger til brukeren.
 
+---
+
 **Signupp:**
 
 1. **Aktivering av feilmeldinger:**
